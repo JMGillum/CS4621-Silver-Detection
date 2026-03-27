@@ -48,7 +48,7 @@ def SetupParser() -> argparse.ArgumentParser:
     )
 
     subparsers = parser.add_subparsers(dest="command")
-    search_parser = subparsers.add_parser(
+    subparsers.add_parser(
         "train",
         parents=[
             version_parser,
@@ -57,6 +57,15 @@ def SetupParser() -> argparse.ArgumentParser:
             output_parser,
         ],
         help="Trains the model using the provided images."
+    )
+    subparsers.add_parser(
+        "predict",
+        parents=[
+            version_parser,
+            verbose_parser,
+            input_dir_parser,
+        ],
+        help="Makes predictions on the provided images."
     )
 
     return parser
@@ -81,7 +90,10 @@ def main():
         exit(1)
     if mode == "train":
         import train
-        train.Start(root_image_path=args.get("input"),verbose=args.get("verbose"))
+        train.Start2(root_image_path=args.get("input"),output_file=args.get("output"),verbose=args.get("verbose"))
+    elif mode == "predict":
+        import predict
+        predict.Start(root_image_path=args.get("input"),verbose=args.get("verbose"))
 
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ import os
 
 from tensorflow import keras
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from keras import layers
 from pathlib import Path
 
 import warnings
@@ -18,7 +19,7 @@ import warnings
 def getImagePaths(root,folder_names,extensions):
     values = []
     for folder_name, extension in zip(folder_names,extensions):
-        values.append(glob.glob(os.path.join(root,folder_name,extension)))
+        values.append(glob.glob(str(Path(root) / Path(folder_name) / Path(extension))))
     return tuple(values)
 
 
@@ -230,4 +231,114 @@ def Start(root_image_path=None,save_output=True,output_file=None,verbose=False):
             output_file = Path.cwd() / Path(f"{cnn['name']}.keras")
         cnn["model"].save(output_file)
 
+def make_model(input_shape, num_classes):
+    inputs = keras.Input(shape=input_shape)
 
+    # Entry block
+    x = layers.Rescaling(1.0 / 255)(inputs)
+    x = layers.Conv2D(128, 3, strides=2, padding="same")(x)
+    x = layers.BatchNormalization()(x)
+    x = layers.Activation("relu")(x)
+
+    previous_block_activation = x  # Set aside residual
+
+    for size in [256, 512, 728]:
+        x = layers.Activation("relu")(x)
+        x = layers.SeparableConv2D(size, 3, padding="same")(x)
+        x = layers.BatchNormalization()(x)
+
+        x = layers.Activation("relu")(x)
+        x = layers.SeparableConv2D(size, 3, padding="same")(x)
+        x = layers.BatchNormalization()(x)
+
+        x = layers.MaxPooling2D(3, strides=2, padding="same")(x)
+
+        # Project residual
+        residual = layers.Conv2D(size, 1, strides=2, padding="same")(
+            previous_block_activation
+        )
+        x = layers.add([x, residual])  # Add back residual
+        previous_block_activation = x  # Set aside next residual
+
+    x = layers.SeparableConv2D(1024, 3, padding="same")(x)
+    x = layers.BatchNormalization()(x)
+    x = layers.Activation("relu")(x)
+
+    x = layers.GlobalAveragePooling2D()(x)
+    if num_classes == 2:
+        units = 1
+    else:
+        units = num_classes
+
+    x = layers.Dropout(0.25)(x)
+    # We specify activation=None so as to return logits
+    outputs = layers.Dense(units, activation=None)(x)
+    return keras.Model(inputs, outputs)
+
+
+
+def Start2(root_image_path=None,save_output=True,output_file=None,verbose=False):
+    image_size = (256,256)
+    batch_size = 32
+
+
+    # Define which CNNs to make and which classes exist within them
+    image_root = Path.cwd() / Path('images') / Path("dataset")
+
+    if root_image_path:
+        image_root = Path(root_image_path)
+
+    train_ds, val_ds = keras.utils.image_dataset_from_directory(
+        image_root,
+        validation_split=0.2,
+        subset="both",
+        seed=1337,
+        image_size=image_size,
+        batch_size=batch_size,
+    )
+
+    if verbose:
+        plt.figure(figsize=(10, 10))
+        for images, labels in train_ds.take(1):
+            for i in range(9):
+                ax = plt.subplot(3, 3, i + 1)
+                plt.imshow(np.array(images[i]).astype("uint8"))
+                plt.title(int(labels[i]))
+                plt.axis("off")
+            plt.show()
+
+    model = make_model(input_shape=image_size + (3,), num_classes=2)
+    keras.utils.plot_model(model, show_shapes=True)
+
+
+    epochs = 2
+
+    callbacks = [
+        keras.callbacks.ModelCheckpoint("save_at_{epoch}.keras"),
+    ]
+    model.compile(
+        optimizer=keras.optimizers.Adam(3e-4),
+        loss=keras.losses.BinaryCrossentropy(from_logits=True),
+        metrics=[keras.metrics.BinaryAccuracy(name="acc")],
+    )
+    model.fit(
+        train_ds,
+        epochs=epochs,
+        callbacks=callbacks,
+        validation_data=val_ds,
+    )
+
+    if save_output:
+        if not output_file:
+            output_file = Path.cwd() / Path("model.keras")
+        model.save(output_file)
+
+    img = keras.utils.load_img(image_root / Path("silver_images") / Path("6779.jpg"), target_size=image_size)
+    plt.imshow(img)
+
+    img_array = keras.utils.img_to_array(img)
+    img_array = keras.ops.expand_dims(img_array, 0)  # Create batch axis
+
+    predictions = model.predict(img_array)
+    score = float(keras.ops.sigmoid(predictions[0][0]))
+    print(f"This image is {100 * (1 - score):.2f}% not silver and {100 * score:.2f}% silver.")

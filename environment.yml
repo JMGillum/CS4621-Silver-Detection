@@ -5,6 +5,7 @@ dependencies:
   - keras
   - numpy
   - matplotlib
+  - pydot
   - pillow
   - scikit-learn
   - opencv
