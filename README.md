@@ -1,7 +1,7 @@
 # Silver Detection Machine Learning Project
 
 ## Overview
-This dataset was created to support research and educational applications in machine learning–based mineral classification, specifically the detection of silver-bearing minerals from photographic images. It consists of **3,869 silver images** and **16,695 non-silver images**, for a total of **20,564 images**. This repository is organized into three folders: data, metadata, and code_file. The data folder contains all mineral images in JPEG format, the metadata folder stores descriptive information for each image in both CSV and JSON format, and the code_file folder includes the Python scripts used to collect and process the dataset. All images were obtained from the Mindat database, a resource specializing in mineralogical information, and are used solely for educational purposes [1]. The folder structure is shown bellow.<br><br>
+This dataset was created to support research and educational applications in machine learning–based mineral classification, specifically the detection of silver-bearing minerals from photographic images. It consists of **3,869 silver images** and **16,695 non-silver images**, for a total of **20,564 images**. This repository is organized into three folders: data, metadata, and code_file. The data folder contains all mineral images in JPEG format, the metadata folder stores descriptive information for each image in both CSV and JSON format, and the code_file folder includes the Python scripts used to collect and process the dataset. All images were obtained from the Mindat database, a resource specializing in mineralogical information, and are used solely for educational purposes [1]. The folder structure is shown bellow.  
 
 <img width="282" height="231" alt="image" src="https://github.com/user-attachments/assets/c2c94922-4b66-45d3-a374-4b0d28bb5c63" />
 
@@ -9,7 +9,7 @@ This dataset was created to support research and educational applications in mac
 ## Data
 Images were collected from the Mindat.org database and organized into two binary categories for classification: **silver** and **non_silver** image class. The *silver_images* folder contains **3,869 JPEG images**, while the *non_silver_images* folder contains **16,695 JPEG images**. All image data are stored on Google OneDrive, and the data folder provides a direct link to the drive from the README.md file. The folder structure of the Gogle OneDrive is shown below.
 
-<img width="481" height="255" alt="image" src="https://github.com/user-attachments/assets/0e2778fe-6d5c-46ea-9119-2329030b76b2" /> <br>
+<img width="481" height="255" alt="image" src="https://github.com/user-attachments/assets/0e2778fe-6d5c-46ea-9119-2329030b76b2" />  
 
 
 
@@ -66,11 +66,11 @@ This notebook validates the downloaded dataset and generates structured metadata
 **Note:**  The other files can be ignored, as they are earlier versions used during development of the final code and retained only for backup purposes.
 
 ## Reference
-[1] Hudson Institute of Mineralogy, “Mindat.org – The Mineral Database.” [Online]. Available: https://www.mindat.org. Accessed: Feb. 14, 2026.
+\[1\] Hudson Institute of Mineralogy, “Mindat.org – The Mineral Database.” \[Online\]. Available: [https://www.mindat.org](https://www.mindat.org). Accessed: Feb. 14, 2026.
 
 ## Author
-Brent Knopp<br>
-Computer Science, Data Science Program<br>
-University of Idaho<br>
-Coeur d'Alene, Idaho<br>
-Email: knop8939@vandals.uidaho.edu
+Brent Knopp  
+Computer Science, Data Science Program  
+University of Idaho  
+Coeur d'Alene, Idaho  
+Email: knop8939@vandals.uidaho.edu  
