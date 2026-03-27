@@ -1,6 +1,5 @@
 keras
 numpy
-pandas
 matplotlib
 pillow
 scikit-learn
