@@ -1,0 +1,12 @@
+# environment.yml
+name: data-science
+dependencies:
+  - python >= 3.13
+  - keras
+  - numpy
+  - pandas
+  - matplotlib
+  - pillow
+  - scikit-learn
+  - opencv
+  - tensorflow
