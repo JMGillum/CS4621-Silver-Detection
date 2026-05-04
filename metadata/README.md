@@ -2,7 +2,10 @@
 All image classes have metadata stored in both CSV and JSON formats. The files are identical in content and follow the same labeling scheme. Each image has an associated set of metadata fields, as shown below.   
 
 
+
 <img width="567" height="385" alt="image" src="https://github.com/user-attachments/assets/cdc17e8c-250f-4ff7-9c1b-07695896d3b3" />   
+
+
 
 Both formats store corresponding image data, where element 0 represents image_0 and element 1 represents image_1, continuing sequentially through the dataset. Metadata for silver images is stored in silver_metadata.csv and silver_metadata.json, while metadata for non-silver images is stored in non_silver_metadata.csv and non_silver_metadata.json. The `metadata/` folder contains structured information for all images in both the original and cleaned datasets. It is organized into two subfolders: <br><br>
 <img width="335" height="263" alt="image" src="https://github.com/user-attachments/assets/d463924d-f703-4afc-9d2c-1edb6c93d1d8" />
