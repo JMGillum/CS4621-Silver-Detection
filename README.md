@@ -1,5 +1,7 @@
 # Silver Detection Machine Learning Project
 
+Lacey Bowden, Josh Gillum, Brent Knopp, Sebastian Vera
+
 ## Overview
 
 This dataset was created to support research and educational applications in machine learning–based mineral classification, specifically the detection of silver-bearing minerals from photographic images. It originally consisted of **3,869 silver images** and **16,695 non-silver images**, for a total of **20,564 images** in the initial downloaded dataset. However, due to mislabeled images and class imbalance, the dataset was filtered to **3,655 silver images** and **3,655 non-silver images**, resulting in a balanced total of **7,310 images**.  
@@ -12,7 +14,7 @@ All images were obtained from the Mindat database, a resource specializing in mi
 
 ## code_file
 
-This project uses five Jupyter Notebooks to implement the data collection, validation, machine learning workflow for the silver detection dataset.
+This project uses five Jupyter Notebooks to implement the data collection, validation, and machine learning workflow for the silver detection dataset.
 
 1. `create_data.ipynb`
 
@@ -101,8 +103,3 @@ Both formats store corresponding image data, where element 0 represents image_0 
 ## Reference
 \[1\] Hudson Institute of Mineralogy, “Mindat.org – The Mineral Database.” \[Online\]. Available: [https://www.mindat.org](https://www.mindat.org). Accessed: Feb. 14, 2026.
 
-## Authors
-Lacey Bowden
-Josh Gillum
-Brent Knopp
-Sebastian Vera
