@@ -11,7 +11,7 @@ This repository is organized into three folders: **data**, **metadata**, and **c
 All images were obtained from the Mindat database, a resource specializing in mineralogical information, and are used solely for educational purposes [1]. The folder structure is outlined below.  
 
 <img width="282" height="231" alt="image" src="https://github.com/user-attachments/assets/c2c94922-4b66-45d3-a374-4b0d28bb5c63" />   
-<img width="527" height="322" alt="image" src="https://github.com/user-attachments/assets/296b8cd7-83d4-4b5f-bee1-65586d9cdbac" />
+
 
 ## code_file
 
@@ -42,7 +42,7 @@ This project uses five Jupyter Notebooks to implement the data collection, valid
 Images were collected from the Mindat.org database and organized into two binary classes for classification: silver and non-silver. Two versions of the dataset are provided: the original downloaded dataset, which contains the full set of images prior to cleaning and balancing, and a cleaned, balanced dataset prepared for machine learning. In the original dataset, the silver_images folder contains 3,869 JPEG images, while the non_silver_images folder contains 16,695 JPEG images. The cleaned and balanced dataset contains exactly 7,310 images, with 3,655 images per class, resulting in a perfectly balanced 1:1 ratio. All image data are stored on Google OneDrive, and the data folder provides a direct link from the README.md file. The folder structure for both datasets on Google OneDrive is shown below.
 
 ### Original Silver Image Dataset
-
+<img width="527" height="322" alt="image" src="https://github.com/user-attachments/assets/296b8cd7-83d4-4b5f-bee1-65586d9cdbac" />
 <img width="517" height="258" alt="image" src="https://github.com/user-attachments/assets/fa95db72-092e-425e-aef7-c81316a17889" />  
 
 ### Cleaned and Balanced Silver Mineral Image Dataset
