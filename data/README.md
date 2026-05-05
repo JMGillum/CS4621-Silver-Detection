@@ -11,7 +11,7 @@ Non-silver Images: 3,655
 [https://drive.google.com/drive/folders/silver_detection/cleaned_dataset](https://drive.google.com/drive/folders/1VoTjm4lIN6GQ2r1tS52o9DGcBkNzQaFO)
 
 <br>
-Note: All original images were identified using the image_url_list.csv file provided by O. Hennigh’s GitHub repository [2].
+Note: All original images were identified using the image_url_list.csv file provided by O. Hennigh’s GitHub repository [2]. The CSV file is included in the Original Silver Image Dataset link.
 
 
 
