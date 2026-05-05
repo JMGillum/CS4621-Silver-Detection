@@ -43,7 +43,6 @@ Images were collected from the Mindat.org database and organized into two binary
 
 ### Original Silver Image Dataset
 <img width="527" height="322" alt="image" src="https://github.com/user-attachments/assets/296b8cd7-83d4-4b5f-bee1-65586d9cdbac" />
-<img width="517" height="258" alt="image" src="https://github.com/user-attachments/assets/fa95db72-092e-425e-aef7-c81316a17889" />  
 
 ### Cleaned and Balanced Silver Mineral Image Dataset
 
