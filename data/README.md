@@ -10,8 +10,8 @@ Silver Images: 3,655
 Non-silver Images: 3,655     
 [https://drive.google.com/drive/folders/silver_detection/cleaned_dataset](https://drive.google.com/drive/folders/1VoTjm4lIN6GQ2r1tS52o9DGcBkNzQaFO)
 
-
-
+<br>
+Note: All original images were identified using the image_url_list.csv file provided by O. Hennigh’s GitHub repository [2].
 
 
 
